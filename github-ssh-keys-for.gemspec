@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sandropadin@gmail.com"]
   spec.summary       = %q{Find and print the SSH keys for any Github user.}
   spec.description   = %q{Find and print the SSH keys for any Github user.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/spadin/github-ssh-keys-for"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

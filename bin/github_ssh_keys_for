@@ -14,5 +14,6 @@ end
 username = ARGV[0]
 keys = get_keys(username)
 
-puts "# Github public keys for '#{username}'"
+puts "### START Github public keys for '#{username}'"
 print_keys keys
+puts "##### END Github public keys for '#{username}'\n"
