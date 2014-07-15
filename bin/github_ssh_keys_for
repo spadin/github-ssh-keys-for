@@ -1,0 +1,18 @@
+#! /usr/bin/env ruby
+
+require_relative '../lib/github_ssh_keys_for/get_keys'
+require_relative '../lib/github_ssh_keys_for/print_keys'
+
+def get_keys(username)
+  GithubSshKeysFor::GetKeys.new(username).execute
+end
+
+def print_keys(keys)
+  GithubSshKeysFor::PrintKeys.new(keys).execute
+end
+
+username = ARGV[0]
+keys = get_keys(username)
+
+puts "# Github public keys for '#{username}'"
+print_keys keys
