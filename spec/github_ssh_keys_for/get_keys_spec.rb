@@ -4,7 +4,7 @@ module GithubSshKeysFor
   describe GetKeys do
     context 'opening a network connection' do
       it 'attempts to get the file at https://api.github.com/users/spadin/keys' do
-        expect_any_instance_of(described_class).to receive(:open_uri).and_return("{}")
+        expect_any_instance_of(described_class).to receive(:response).and_return("{}")
         described_class.new("spadin").execute
       end
     end
@@ -30,7 +30,7 @@ module GithubSshKeysFor
 
       it 'returns an array with the ssh keys only' do
         allow_any_instance_of(described_class)
-          .to receive(:open_json_uri).and_return(json)
+          .to receive(:json_response).and_return(json)
 
         execute = described_class.new("spadin").execute
 

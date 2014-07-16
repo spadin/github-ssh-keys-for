@@ -8,10 +8,7 @@ module GithubSshKeysFor
     end
 
     def execute
-      response = open_json_uri(uri)
-      response.map do |item|
-        item["key"]
-      end
+      json_response.map { |i| i["key"] }
     end
 
     private
@@ -22,12 +19,11 @@ module GithubSshKeysFor
       "https://api.github.com/users/#{username}/keys"
     end
 
-    def open_uri(uri)
+    def response
       OpenURI::open_uri(uri).read
     end
 
-    def open_json_uri(uri)
-      response = open_uri(uri)
+    def json_response
       JSON.parse(response)
     end
   end
